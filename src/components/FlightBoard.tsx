@@ -127,7 +127,7 @@ export default function FlightBoard() {
   }
 
   return (
-    <div style={{ flex: 1, padding: '16px 24px', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+    <div className="flight-board" style={{ flex: 1, padding: '16px 24px', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
         <h2 style={{ fontSize: 15, fontWeight: 600, margin: 0 }}>Flight Board</h2>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -146,7 +146,7 @@ export default function FlightBoard() {
           placeholder="Search flight or route..."
           value={filter}
           onChange={e => setFilter(e.target.value)}
-          style={{ padding: '6px 10px', border: '1px solid #d1d5db', borderRadius: 6, fontSize: 12, width: 180 }}
+          className="flight-search"
         />
         <select
           value={statusFilter}
@@ -164,26 +164,24 @@ export default function FlightBoard() {
           No flights found.
         </div>
       ) : (
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
+        <table className="flight-table">
           <thead>
             <tr>
-              {['Flight', 'Route', source === 'opensky' ? 'Altitude' : 'Scheduled', source === 'opensky' ? 'Speed' : 'Actual', 'Status'].map(h => (
-                <th key={h} style={{ textAlign: 'left', padding: '8px 12px', borderBottom: '2px solid #e2e8f0', fontSize: 11, textTransform: 'uppercase', letterSpacing: 0.5, color: '#64748b', fontWeight: 600 }}>
-                  {h}
-                </th>
-              ))}
+              <th>Flight</th>
+              <th>Route</th>
+              <th className="col-altitude">{source === 'opensky' ? 'Altitude' : 'Scheduled'}</th>
+              <th className="col-speed">{source === 'opensky' ? 'Speed' : 'Actual'}</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
             {filtered.map(f => (
-              <tr key={f.id}
-                  onMouseEnter={e => (e.currentTarget.style.background = '#f8fafc')}
-                  onMouseLeave={e => (e.currentTarget.style.background = '')}>
-                <td style={{ padding: '10px 12px', borderBottom: '1px solid #f1f5f9', fontWeight: 600 }}>{f.callsign}</td>
-                <td style={{ padding: '10px 12px', borderBottom: '1px solid #f1f5f9' }}>{f.route}</td>
-                <td style={{ padding: '10px 12px', borderBottom: '1px solid #f1f5f9' }}>{f.altitude}</td>
-                <td style={{ padding: '10px 12px', borderBottom: '1px solid #f1f5f9' }}>{f.speed}</td>
-                <td style={{ padding: '10px 12px', borderBottom: '1px solid #f1f5f9' }}>
+              <tr key={f.id}>
+                <td style={{ fontWeight: 600 }}>{f.callsign}</td>
+                <td>{f.route}</td>
+                <td className="col-altitude">{f.altitude}</td>
+                <td className="col-speed">{f.speed}</td>
+                <td>
                   <span style={{ padding: '3px 10px', borderRadius: 12, fontSize: 11, fontWeight: 600, background: f.statusStyle.bg, color: f.statusStyle.color }}>
                     {f.status}
                   </span>

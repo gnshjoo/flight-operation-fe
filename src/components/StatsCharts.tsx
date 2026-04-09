@@ -69,7 +69,7 @@ export default function StatsCharts() {
   }, []);
 
   return (
-    <div style={{ padding: '16px 24px', background: 'white', borderTop: '1px solid #e2e8f0' }}>
+    <div className="charts-section" style={{ padding: '16px 24px', background: 'white', borderTop: '1px solid #e2e8f0' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
         <h2 style={{ fontSize: 15, fontWeight: 600, margin: 0 }}>Statistics</h2>
         {source === 'kac' && (
@@ -78,7 +78,7 @@ export default function StatsCharts() {
           </span>
         )}
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16 }}>
+      <div className="charts-grid">
         {/* Flights by Airport */}
         <div style={{ background: '#f8fafc', borderRadius: 8, padding: 16 }}>
           <h4 style={{ fontSize: 12, color: '#64748b', marginBottom: 8, margin: 0 }}>KE Flights by Airport</h4>

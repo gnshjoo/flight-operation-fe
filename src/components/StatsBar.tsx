@@ -64,7 +64,7 @@ export default function StatsBar() {
 
   if (!stats) {
     return (
-      <div style={{ display: 'flex', gap: 16, padding: '16px 24px', background: 'white', borderBottom: '1px solid #e2e8f0' }}>
+      <div className="stats-bar">
         {[1,2,3,4].map(i => (
           <div key={i} style={{ flex: 1, padding: '12px 16px', borderRadius: 8, background: '#f1f5f9', height: 72 }} />
         ))}
@@ -92,7 +92,7 @@ export default function StatsBar() {
   ];
 
   return (
-    <div style={{ display: 'flex', gap: 16, padding: '16px 24px', background: 'white', borderBottom: '1px solid #e2e8f0' }}>
+    <div className="stats-bar">
       {cards.map(c => (
         <div key={c.label} style={{ flex: 1, padding: '12px 16px', borderRadius: 8, background: '#f8fafc' }}>
           <div style={{ fontSize: 11, color: '#64748b', textTransform: 'uppercase', letterSpacing: 0.5 }}>{c.label}</div>

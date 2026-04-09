@@ -6,12 +6,12 @@ interface Props {
 
 export default function Header({ wsConnected }: Props) {
   return (
-    <header style={{ background: '#003876', color: 'white', padding: '12px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+    <header className="header">
       <div>
-        <h1 style={{ fontSize: 18, fontWeight: 600, margin: 0, letterSpacing: 0.5 }}>
+        <h1 className="header-title">
           KOREAN AIR Flight Operations
         </h1>
-        <div style={{ fontSize: 12, opacity: 0.7 }}>Operations Control Dashboard</div>
+        <div className="header-sub">Operations Control Dashboard</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 13 }}>
         <span style={{

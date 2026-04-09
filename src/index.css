@@ -10,3 +10,197 @@ body {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
 }
+
+/* Layout */
+.app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-row {
+  display: flex;
+  height: 520px;
+}
+
+/* Header */
+.header {
+  background: #003876;
+  color: white;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-title { font-size: 18px; font-weight: 600; margin: 0; letter-spacing: 0.5px; }
+.header-sub { font-size: 12px; opacity: 0.7; }
+
+/* StatsBar */
+.stats-bar {
+  display: flex;
+  gap: 16px;
+  padding: 16px 24px;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* AlertPanel */
+.alert-panel {
+  width: 340px;
+  min-width: 340px;
+  border-left: 1px solid #e2e8f0;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+
+/* StatsCharts grid */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* FlightBoard table */
+.flight-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.flight-table th {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 2px solid #e2e8f0;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.flight-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.flight-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.col-altitude,
+.col-speed {
+  /* visible by default */
+}
+
+/* FlightBoard search */
+.flight-search {
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 12px;
+  width: 180px;
+}
+
+/* Map container */
+.map-wrapper {
+  height: 350px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+/* ========== Mobile (max-width: 768px) ========== */
+@media (max-width: 768px) {
+  /* App layout */
+  .main-row {
+    flex-direction: column;
+    height: auto;
+  }
+
+  /* Header */
+  .header {
+    padding: 10px 16px;
+  }
+  .header-title {
+    font-size: 14px;
+  }
+  .header-sub {
+    font-size: 10px;
+  }
+
+  /* StatsBar: 2x2 grid */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 12px 16px;
+  }
+
+  /* FlightBoard */
+  .flight-board {
+    padding: 12px 16px !important;
+  }
+  .flight-search {
+    width: 100%;
+    flex: 1;
+  }
+  .flight-table {
+    font-size: 12px;
+  }
+  .flight-table th,
+  .flight-table td {
+    padding: 8px 6px;
+  }
+  .col-altitude,
+  .col-speed {
+    display: none;
+  }
+
+  /* AlertPanel: full width, collapsed height */
+  .alert-panel {
+    width: 100%;
+    min-width: 100%;
+    border-left: none;
+    border-top: 1px solid #e2e8f0;
+    max-height: 300px;
+  }
+
+  /* Map */
+  .map-section {
+    padding: 12px 16px !important;
+  }
+  .map-wrapper {
+    height: 250px;
+  }
+
+  /* Charts: single column */
+  .charts-section {
+    padding: 12px 16px !important;
+  }
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========== Tablet (max-width: 1024px) ========== */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .header {
+    padding: 12px 16px;
+  }
+  .header-title {
+    font-size: 16px;
+  }
+  .stats-bar {
+    padding: 12px 16px;
+    gap: 10px;
+  }
+  .alert-panel {
+    width: 280px;
+    min-width: 280px;
+  }
+  .map-wrapper {
+    height: 300px;
+  }
+}

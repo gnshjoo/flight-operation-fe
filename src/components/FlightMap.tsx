@@ -85,7 +85,7 @@ export default function FlightMap() {
     : 'Loading...';
 
   return (
-    <div style={{ padding: '16px 24px', background: 'white', borderTop: '1px solid #e2e8f0' }}>
+    <div className="map-section" style={{ padding: '16px 24px', background: 'white', borderTop: '1px solid #e2e8f0' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
         <h2 style={{ fontSize: 15, fontWeight: 600, margin: 0 }}>Live Flight Map</h2>
         <span style={{
@@ -98,7 +98,7 @@ export default function FlightMap() {
           {sourceLabel}
         </span>
       </div>
-      <div style={{ height: 350, borderRadius: 8, overflow: 'hidden', border: '1px solid #e2e8f0' }}>
+      <div className="map-wrapper">
         <MapContainer
           center={[36.5, 127.5]}
           zoom={3}

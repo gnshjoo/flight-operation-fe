@@ -12,11 +12,11 @@ function App() {
   const { alerts, connected, acknowledge } = useAlerts();
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', minWidth: 1280 }}>
+    <div className="app-root">
       <Header wsConnected={connected} />
       <ConnectionBanner connected={connected} />
       <StatsBar />
-      <div style={{ display: 'flex', height: 520 }}>
+      <div className="main-row">
         <FlightBoard />
         <AlertPanel alerts={alerts} onAcknowledge={acknowledge} />
       </div>
